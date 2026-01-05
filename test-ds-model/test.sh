@@ -1,0 +1,1 @@
+python qa_test.py --model_name /mnt/msranlp/xun/BieNet_finetuning/1027_ds_exp/results/en/bitdistill-medical-o1-reasoning-en-DeepSeek-R1-Distill-Qwen-1.5B-warm0.05-epoch4-lr1e-4-beta1.0-miniLM1e4-layer21-bs32xa1xg1-mi300/

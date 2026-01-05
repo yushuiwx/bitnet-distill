@@ -1,0 +1,51 @@
+### model
+model_name_or_path: Qwen/Qwen2.5-1.5B
+trust_remote_code: true
+
+### method
+stage: sft
+do_train: true
+finetuning_type: full
+# lora_rank: 8
+# lora_target: all
+flash_attn: fa2
+
+### dataset
+dataset: cnn_mails_train
+dataset_dir: /mnt/msranlp/xun/BieNet_finetuning/datasets/cnn_dailymail
+template: qwen
+cutoff_len: 8192
+max_samples: null
+overwrite_cache: true
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+
+### output
+output_dir: /mnt/msranlp/xun/BieNet_finetuning/training_results2/CNN-Mail-50ksteps/Qwen-Qwen2.5-1.5B/llama-factory-baseline
+logging_steps: 1000
+save_steps: 500
+plot_loss: true
+overwrite_output_dir: true
+save_only_model: false
+
+### train
+per_device_train_batch_size: 1
+disable_gradient_checkpointing: true
+gradient_accumulation_steps: 4
+learning_rate: 5.0e-5
+num_train_epochs: 6.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.05
+bf16: true
+ddp_timeout: 180000000
+resume_from_checkpoint: null
+
+### eval
+eval_dataset: cnn_mails_vali_2k
+# val_size: 0.1
+per_device_eval_batch_size: 1
+eval_strategy: steps
+eval_steps: 50
+
+report_to: wandb
+run_name: llamafactory # optional
