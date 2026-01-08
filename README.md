@@ -30,7 +30,13 @@ bash setup.sh
 
 ### Training Commands
 
-* for training fp16 baseline on downstream task:
+qwen3 series exps please refer to 
+```
+bash qwen3-exp.sh
+```
+
+
+* for training deepseekdistill fp16 baseline on downstream task:
     * $lr: learning rate
     * $model: Qwen model name
     * $gpu: gpu index for training
@@ -38,7 +44,7 @@ bash setup.sh
 bash ds-exp-run-sft-baseline.sh $lr $model $gpu
 ```
 
-* for training bitdistill on downstream task using fp16 baseline as teacher:
+* for training deepseekdistill bitdistill on downstream task using fp16 baseline as teacher:
 
     * $teacher: local path for fp16 huggingface-format teacher model
     * $beta: loss weight for logits distillation
