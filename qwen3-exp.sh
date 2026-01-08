@@ -37,7 +37,7 @@ for idx in "${!lrs[@]}"; do
     -v $(pwd):$(pwd) -w $(pwd) \
     rocm/pytorch:rocm6.4.1_ubuntu24.04_py3.12_pytorch_release_2.5.1 \
     bash -c "
-      bash mi300_setup.sh && bash run_qwen3_sft_distill.sh $lr $model $gpu <PUT-TARGET-PATH-HERE> 1.0 1e5 24
+      bash mi300_setup.sh && bash run_qwen3_sft_distill.sh $lr $model $gpu <PUT-TEACHER_MODEL-PATH-HERE> 1.0 1e5 24
     " &
 
 done
